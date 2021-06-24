@@ -1,0 +1,31 @@
+﻿@model Login.Models.Usuario
+@{
+    ViewBag.Title = "Login Page";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="divLogin">
+        <h4>Login</h4>
+        <hr />
+        <div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger decoretion" })
+            <div class="form-group">
+                @Html.LabelFor(m => m.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.TextBoxFor(m => m.Nome, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Senha, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.TextBoxFor(m => m.Senha, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-danger">Login</button><br />
+            </div>
+            <div class="form-group">
+                @Html.ActionLink("Novo usuário", "Cadastro")
+            </div>
+        </div>
+    </div>
+}
